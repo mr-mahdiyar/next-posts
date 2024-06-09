@@ -29,6 +29,7 @@ async function createPost(prevState, formData) { // define a form action. It has
       errors.push("Image is required.")
     }
     if(errors.length > 0) {
+      // form action must return a something taht represent form state.
       return {errors}
     }
     redirect("/feed")

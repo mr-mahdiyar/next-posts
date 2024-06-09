@@ -2,6 +2,7 @@
 import FormSubmit from "@/components/form-submit";
 import { useFormState } from "react-dom";
 
+// useFormStatus in doc https://pl.react.dev/reference/react-dom/hooks/useFormState#useformstate
 export default function PostForm({ action }) {
   // first output includes inputs data, error or success messages and second output is a potinter to a function that sends form datas to server, update form state and somethings like them.
   const [state, formAction] = useFormState(action, {});
