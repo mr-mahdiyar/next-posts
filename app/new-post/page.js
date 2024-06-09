@@ -1,4 +1,6 @@
+import FormSubmit from '@/components/form-submit';
 import { storePost } from '@/lib/posts';
+import { redirect } from 'next/navigation';
 
 export default function NewPostPage() {
 
@@ -8,12 +10,14 @@ async function createPost(formData) { //define a form action. It have to be asyn
     const image = formData.get("image");
     const content = formData.get("content");
 
-    storePost({
+    await storePost({
       imageUrl: '',
       title,
       content,
       userId: 1
     })
+
+    redirect("/feed")
   }
 
   return (
@@ -38,8 +42,7 @@ async function createPost(formData) { //define a form action. It have to be asyn
           <textarea id="content" name="content" rows="5" />
         </p>
         <p className="form-actions">
-          <button type="reset">Reset</button>
-          <button>Create Post</button>
+          <FormSubmit />
         </p>
       </form>
     </>
